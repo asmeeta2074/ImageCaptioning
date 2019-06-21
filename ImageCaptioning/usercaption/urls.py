@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth.views import LoginView,LogoutView
 from .views import SignupCreateView,ImageCaptionCreateView,ImageCaptionTemplateView
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('oauth/', include('social_django.urls', namespace='social')),  # <--
@@ -10,4 +13,4 @@ urlpatterns = [
     path('signup/',SignupCreateView.as_view(),name ='signup'),
     path('',ImageCaptionCreateView.as_view(),name ='imagecaptioncreate'),
     path('generated/',ImageCaptionTemplateView.as_view(),name ='imagecaption'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
