@@ -6,6 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import ImageCaptionForm
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from keras.preprocessing.image import load_img
+from keras.preprocessing.image import img_to_array
+import matplotlib.pyplot as plt
+from .ImageCaption import get_caption
+
 
 class SignupCreateView(CreateView):
     form_class = UserCreationForm
@@ -19,8 +24,7 @@ class ImageCaptionCreateView(LoginRequiredMixin,CreateView):
 
     def form_valid(self,form):
         form.instance.user = self.request.user
-        print(type(form.instance.image))
-        form.instance.caption = get_caption()
+        form.instance.caption = get_caption(form.instance.image)
         return super(ImageCaptionCreateView,self).form_valid(form)
 
 class ImageCaptionGenerateView(LoginRequiredMixin,DetailView):
@@ -36,11 +40,6 @@ class ImageCaptionGenerateView(LoginRequiredMixin,DetailView):
         context['imagecaption'] = self.get_object()
         return context
 
-
-
 class ImageCaptionTemplateView(LoginRequiredMixin,TemplateView):
     model = ImageCaption
     template_name = 'usercaption/allgeneratedcaptions.html'
-
-def get_caption():
-    return "This"
