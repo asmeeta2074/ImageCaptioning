@@ -147,9 +147,11 @@ LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/' # or todo both are same
 LOGOUT_REDIRECT_URL = 'login'
 
-
 EMAIL_HOST = 'smtp.gmail.net'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ajaykarki619'
 EMAIL_HOST_PASSWORD = 'gmail_12371'
 EMAIL_USE_TLS = True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
