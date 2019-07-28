@@ -1,43 +1,17 @@
 {% extends 'usercaption/base.html' %}
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title">This is Caption Generated</h5>
+        <div class="row">
+    {% for captionset in object_list %}
+    
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ captionset.image.url }}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{ captionset.caption }}</h5>
+                </div>
             </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title">This is Caption Generated</h5>
-                    </div>
-                </div>
-        <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title">This is Caption Generated</h5>
-                    </div>
-                </div>
-        <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title">This is Caption Generated</h5>
-                    </div>
-                </div>
-        <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title">This is Caption Generated</h5>
-                    </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title">This is Caption Generated</h5>
-                    </div>
-        </div>
-            </div>
+    {% endfor %}
 </div>
+</div>
+
   {% endblock %}

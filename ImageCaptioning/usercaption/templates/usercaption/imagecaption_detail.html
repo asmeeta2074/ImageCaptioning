@@ -1,4 +1,14 @@
+{% extends 'usercaption/base.html' %}
 {% block content %}
-{{ imagecaption.image }}
-{{ imagecaption.caption }}
+
+<div class="container">
+    <div class="justify-content-center align-self-center">
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ imagecaption.image.url }}" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{ imagecaption.caption }}</h5>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
