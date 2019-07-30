@@ -7,12 +7,13 @@ from keras.applications.inception_v3 import InceptionV3
 from keras.models import Model
 from keras.applications.inception_v3 import preprocess_input
 import numpy as np
-
+from keras import backend as K
 wordtoix = np.load('usercaption/wordtoix.npy',allow_pickle=True).item()
 ixtoword = np.load('usercaption/ixtoword.npy',allow_pickle=True).item()
-max_length=74
+max_length=34
 def caption(photo):
-    model = load_model('usercaption/model_19.h5')
+    K.clear_session()
+    model = load_model('usercaption/sampletest.h5')
     in_text = 'startseq'
     for i in range(max_length):
         sequence = [wordtoix[w] for w in in_text.split() if w in wordtoix]
