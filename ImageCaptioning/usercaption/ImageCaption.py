@@ -8,12 +8,18 @@ from keras.models import Model
 from keras.applications.inception_v3 import preprocess_input
 import numpy as np
 from keras import backend as K
+
 wordtoix = np.load('usercaption/wordtoix.npy',allow_pickle=True).item()
 ixtoword = np.load('usercaption/ixtoword.npy',allow_pickle=True).item()
-max_length=34
+model = load_model('usercaption/sampletest.h5')
+modeltype = "8k"
+
+if modeltype="30k":
+    max_length=74
+else:
+    max_length=34
 def caption(photo):
     K.clear_session()
-    model = load_model('usercaption/sampletest.h5')
     in_text = 'startseq'
     for i in range(max_length):
         sequence = [wordtoix[w] for w in in_text.split() if w in wordtoix]
