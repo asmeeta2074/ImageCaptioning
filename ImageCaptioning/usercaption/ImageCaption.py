@@ -9,6 +9,7 @@ from keras.applications.inception_v3 import preprocess_input
 import numpy as np
 from keras import backend as K
 import tensorflow as tf
+from keras.preprocessing import sequence
 
 # Declare this as global:
 global graph
@@ -55,9 +56,10 @@ def extract_features(filename):
     return feature
 def get_caption(pic):
     encoded = extract_features(pic)
-    cap = beam_search_predictions(encoded,7)
+    cap = "Greedy Search Caption : "+caption(encoded) +"\n"
+    cap =cap + "Beam Search (k=3)  "+ beam_search_predictions(encoded,3)+"\n"
+    cap = cap + "Beam Search (k=7)  "+ beam_search_predictions(encoded,7)
     return cap
-from keras.preprocessing import sequence
 
 def beam_search_predictions(photo, beam_index = 3):
     K.clear_session()
