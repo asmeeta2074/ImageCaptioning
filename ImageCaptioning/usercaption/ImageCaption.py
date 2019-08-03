@@ -67,9 +67,6 @@ def beam_search_predictions(photo, beam_index = 3):
     model = load_model('usercaption/Icap30k_v_50.h5')
 
     start = [wordtoix["startseq"]]
-    
-    # start_word[0][0] = index of the starting word
-    # start_word[0][1] = probability of the word predicted
     start_word = [[start, 0.0]]
     
     while len(start_word[0][0]) < max_length:
