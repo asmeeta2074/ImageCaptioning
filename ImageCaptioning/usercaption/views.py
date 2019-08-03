@@ -47,3 +47,8 @@ class ImageCaptionGenerateView(LoginRequiredMixin,DetailView):
 class ImageCaptionTemplateView(LoginRequiredMixin,ListView):
     model = ImageCaption
     template_name = 'usercaption/allgeneratedcaptions.html'
+
+    def get_context_data(self,*args,**kwargs):
+        context = {}
+        context['object_list'] = ImageCaption.objects.filter(user=self.request.user).order_by('-date')
+        return context
