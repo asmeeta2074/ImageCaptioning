@@ -4,10 +4,12 @@
         <div class="row">
     {% for captionset in object_list %}
 
-        <div class="card" style="width: 20rem;margin: 2%;">
+        <div class="card" style="width: 28rem;margin: 2%;">
         <img class="card-img-top" style="height: 18rem;"  src="{{ captionset.image.url }}" alt="Card image cap">
             <div class="card-body">
-            <h5 class="card-title">{{ captionset.caption }}</h5>
+            <h5 class="card-title">{{ captionset.caption1 }}</h5> <br>
+            <h5 class="card-title">{{ captionset.caption2 }}</h5> <br>
+            <h5 class="card-title">{{ captionset.caption3 }}</h5> <br>
             </div>
         </div>
     {% endfor %}

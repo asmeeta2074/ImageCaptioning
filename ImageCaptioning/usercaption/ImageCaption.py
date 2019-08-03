@@ -57,8 +57,9 @@ def extract_features(filename):
 def get_caption(pic):
     encoded = extract_features(pic)
     cap = "Greedy Search Caption : "+caption(encoded) +"\n"
-    cap =cap + "Beam Search (k=3)  "+ beam_search_predictions(encoded,3)+"\n"
-    cap = cap + "Beam Search (k=7)  "+ beam_search_predictions(encoded,7)
+    cap =cap + "Beam Search (k=3) : "+ beam_search_predictions(encoded,3)+"\n"
+    cap = cap + "Beam Search (k=7) : "+ beam_search_predictions(encoded,7)
+    print(cap)
     return cap
 
 def beam_search_predictions(photo, beam_index = 3):

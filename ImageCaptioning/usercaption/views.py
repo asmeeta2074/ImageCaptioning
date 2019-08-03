@@ -25,11 +25,14 @@ class ImageCaptionCreateView(LoginRequiredMixin,CreateView):
 
     def form_valid(self,form):
         form.instance.user = self.request.user
-        form.instance.caption = get_caption(form.instance.image)
+        caption = get_caption(form.instance.image)
+        caption = caption.split("\n")
+        form.instance.caption1 = caption[0]
+        form.instance.caption2 = caption [1]
+        form.instance.caption3 =caption [2]
         return super(ImageCaptionCreateView,self).form_valid(form)
 
 class ImageCaptionGenerateView(LoginRequiredMixin,DetailView):
-    #template_name = 'usercaption/generatedcaption.html'
     model = ImageCaption
 
     def get_object(self,*args,**kwargs):
