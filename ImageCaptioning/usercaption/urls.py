@@ -7,7 +7,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('oauth/', include('social_django.urls', namespace='social')),  # <--
+    path('oauth/', include('social_django.urls', namespace='social')),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('signup/',SignupCreateView.as_view(),name ='signup'),

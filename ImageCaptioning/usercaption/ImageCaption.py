@@ -41,9 +41,9 @@ def caption(photo):
 def extract_features(filename):
     # model = InceptionV3(weights='imagenet')
     # model = Model(model.input, model.layers[-2].output)
-    # model.save('loaded.h5')
+    # model.save('usercaption/loaded.h5')
     K.clear_session()
-    feature_extraction=load_model('loaded.h5')
+    feature_extraction=load_model('usercaption/loaded.h5')
     image = load_img(filename, target_size=(299, 299))
     # convert the image pixels to a numpy array
     image = img_to_array(image)
